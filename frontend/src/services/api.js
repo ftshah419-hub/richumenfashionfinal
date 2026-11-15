@@ -5,11 +5,13 @@ const api = axios.create({
   headers: { "Content-Type": "application/json" }
 });
 
-// Development starter: reads the access token from sessionStorage.
-// For production, move to secure HttpOnly cookie-based session handling.
 api.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem("richu_access_token");
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  const token =
+    sessionStorage.getItem("richu_access_token") ||
+    localStorage.getItem("richu_access_token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
 
