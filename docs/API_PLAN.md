@@ -1,6 +1,6 @@
 # Planned RICHU API modules
 
-- /api/auth – register, login, current user, password reset
+- /api/auth – register, customer/admin login, current user, logout, password change
 - /api/users – profile and addresses
 - /api/categories – category listing and admin management
 - /api/products – listing, details, search and admin CRUD
@@ -11,4 +11,4 @@
 - /api/reviews – product reviews
 - /api/admin – dashboard and audit operations
 
-Only /api/health and the initial /api/auth endpoints are implemented in this scaffold. Other modules are planned, not yet functional.
+Only /api/health and /api/auth are implemented in this scaffold. Other modules are planned, not yet functional.
