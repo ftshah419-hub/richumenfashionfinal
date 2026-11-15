@@ -17,7 +17,9 @@ import Profile from "./pages/Profile";
 
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Account from "./pages/account/Account";
 import AdminDashboard from "./pages/admin/Dashboard";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 export default function App() {
   return (
@@ -28,18 +30,32 @@ export default function App() {
             <Navbar />
             <main className="flex-grow pt-28">
               <Routes>
+                {/* Store Routes */}
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/product/:identifier" element={<ProductDetails />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/orders" element={<MyOrders />} />
-                <Route path="/profile" element={<Profile />} />
 
+                {/* Auth Routes */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/admin" element={<AdminDashboard />} />
+
+                {/* Protected User Routes */}
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/orders" element={<ProtectedRoute><MyOrders /></ProtectedRoute>} />
+                <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+
+                {/* Protected Admin Route */}
+                <Route
+                  path="/admin"
+                  element={
+                    <ProtectedRoute roles={["admin"]}>
+                      <AdminDashboard />
+                    </ProtectedRoute>
+                  }
+                />
               </Routes>
             </main>
             <Footer />

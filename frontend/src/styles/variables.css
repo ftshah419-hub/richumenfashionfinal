@@ -1,7 +1,12 @@
 :root {
   --navy: #0D1B2A;
+  --deep-navy: #08111B;
   --gold: #D4AF37;
+  --pale-gold: #EEDC9A;
   --off-white: #F8F9FA;
+  --atelier-surface: #F8F9FF;
+  --atelier-surface-low: #EEF4FF;
+  --atelier-surface-high: #E0E9F8;
   --charcoal: #333333;
   --slate: #6B7280;
   --white: #FFFFFF;
