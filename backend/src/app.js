@@ -4,7 +4,6 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 
 const authRoutes = require("./routes/authRoutes");
-const adminRoutes = require("./routes/adminRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
 const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes");
@@ -21,8 +20,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173", credentials: true }));
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(express.json({ limit: "1mb" }));
 app.use("/api", rateLimit({ windowMs: 15 * 60 * 1000, limit: 300 }));
 
 // Health Check
@@ -30,7 +28,6 @@ app.get("/api/health", health);
 
 // API Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/admin", adminRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
