@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs at http://localhost:5173 and API at http://localhost:5001.
+Frontend runs at http://localhost:5173 and API at http://localhost:5000.
 
 ## Important
 - This is a starter scaffold, not a finished e-commerce implementation.
@@ -35,7 +35,3 @@ Frontend runs at http://localhost:5173 and API at http://localhost:5001.
 - JWT access tokens are returned by the starter login endpoint for development. For production, prefer secure, HttpOnly cookie-based refresh-session handling and add CSRF protections where applicable.
 - Razorpay and Cloudinary credentials are placeholders. Never commit `.env` files.
 - Payment verification, inventory transactions, email verification, password reset, shipping integrations and production hardening must be implemented and tested before launch.
-
-## Authentication module
-
-Authentication is available under `/api/auth`. It provides separate customer and admin sign-in flows, JWT-protected routes, logout/session revocation, and password changes. See [the API contract](docs/AUTHENTICATION.md) for requests, responses, admin provisioning, and test instructions.
